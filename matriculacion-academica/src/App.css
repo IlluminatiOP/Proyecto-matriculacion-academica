@@ -1,0 +1,428 @@
+:root {
+  --papel: #edf0ec;
+  --papel-carta: #f7f8f6;
+  --tinta: #1f2a24;
+  --tinta-suave: #5c6b62;
+  --verde: #3e6b52;
+  --verde-suave: #e4ece6;
+  --ambar: #c97c2c;
+  --ambar-suave: #fbeee0;
+  --rojo: #a63d40;
+  --rojo-suave: #f7e8e7;
+  --borde: #d3d9d2;
+
+  --serif: "Lora", Georgia, serif;
+  --sans: "Inter", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: var(--sans);
+}
+
+.app {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+.app__header {
+  background: var(--tinta);
+  color: var(--papel);
+  padding: 1.75rem 2rem;
+  margin: -2.5rem -1.5rem 2rem;
+  border-bottom: 3px solid var(--ambar);
+}
+
+.app__header h1 {
+  font-family: var(--serif);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin: 0 0 0.35rem;
+  letter-spacing: -0.01em;
+  color: var(--papel);
+}
+
+.app__header p {
+  margin: 0;
+  color: var(--papel);
+  opacity: 0.75;
+  font-size: 0.9rem;
+  font-family: var(--mono);
+  letter-spacing: 0.02em;
+}
+
+.app__contenido {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (max-width: 800px) {
+  .app__contenido {
+    grid-template-columns: 1fr;
+  }
+}
+
+.lista-cursos h2 {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  margin: 0 0 1rem;
+  color: var(--tinta);
+}
+
+.lista-cursos__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.curso-card {
+  background: var(--papel-carta);
+  border: 1px solid var(--borde);
+  border-radius: 4px;
+  padding: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition:
+    border-color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.curso-card--seleccionado {
+  border-color: var(--verde);
+  background: var(--verde-suave);
+}
+
+.curso-card__info h3 {
+  font-family: var(--serif);
+  font-size: 1rem;
+  margin: 0 0 0.3rem;
+  line-height: 1.3;
+}
+
+.curso-card__codigo {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  color: var(--tinta-suave);
+  margin: 0 0 0.6rem;
+  text-transform: uppercase;
+}
+
+.curso-card__detalles {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  color: var(--tinta-suave);
+}
+
+.curso-card__cupos--agotado {
+  color: var(--rojo);
+  font-weight: 600;
+}
+
+.curso-card__boton {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 0.85rem;
+  border: 1.5px solid var(--tinta);
+  background: transparent;
+  color: var(--tinta);
+  padding: 0.5rem 0.75rem;
+  border-radius: 3px;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+.curso-card__boton:hover:not(:disabled) {
+  background: var(--tinta);
+  color: var(--papel-carta);
+}
+
+.curso-card__boton:focus-visible {
+  outline: 3px solid var(--ambar);
+  outline-offset: 2px;
+}
+
+.curso-card__boton:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.curso-card--seleccionado .curso-card__boton {
+  border-color: var(--verde);
+  color: var(--verde);
+}
+
+.curso-card--seleccionado .curso-card__boton:hover {
+  background: var(--verde);
+  color: var(--papel-carta);
+}
+
+.resumen-matricula {
+  position: sticky;
+  top: 1.5rem;
+  background: var(--papel-carta);
+  border: 1.5px dashed var(--tinta-suave);
+  border-radius: 6px;
+  padding: 1.5rem;
+  position: relative;
+}
+
+.resumen-matricula::before,
+.resumen-matricula::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: var(--papel);
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.resumen-matricula::before {
+  left: -11px;
+}
+.resumen-matricula::after {
+  right: -11px;
+}
+
+.resumen-matricula h2 {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  margin: 0 0 1rem;
+}
+
+.resumen-matricula__error {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--rojo-suave);
+  color: var(--rojo);
+  border: 1px solid var(--rojo);
+  border-radius: 4px;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.resumen-matricula__error button {
+  background: none;
+  border: none;
+  color: var(--rojo);
+  font-size: 1.1rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.resumen-matricula__lista {
+  list-style: none;
+  margin: 0 0 1.25rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.resumen-matricula__lista li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  border-bottom: 1px dashed var(--borde);
+  padding-bottom: 0.5rem;
+}
+
+.resumen-matricula__lista button {
+  background: none;
+  border: none;
+  color: var(--rojo);
+  font-size: 0.78rem;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.resumen-matricula__creditos {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  border-top: 1.5px dashed var(--tinta-suave);
+  padding-top: 0.9rem;
+  margin-bottom: 1.25rem;
+}
+
+.resumen-matricula__creditos p {
+  margin: 0.3rem 0;
+}
+
+.resumen-matricula__confirmar {
+  width: 100%;
+  background: var(--verde);
+  color: var(--papel-carta);
+  border: none;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.75rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.resumen-matricula__confirmar:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.resumen-matricula__confirmar:focus-visible {
+  outline: 3px solid var(--ambar);
+  outline-offset: 2px;
+}
+
+.resumen-matricula__confirmar:disabled {
+  background: var(--borde);
+  color: var(--tinta-suave);
+  cursor: not-allowed;
+}
+
+.confirmacion-matricula {
+  max-width: 480px;
+  margin: 2rem auto;
+  background: var(--papel-carta);
+  border: 1.5px dashed var(--verde);
+  border-radius: 6px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.confirmacion-matricula h2 {
+  font-family: var(--serif);
+  color: var(--verde);
+  margin-top: 0;
+}
+
+.confirmacion-matricula__lista {
+  list-style: none;
+  padding: 0;
+  margin: 1.25rem 0;
+  text-align: left;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.confirmacion-matricula__lista li {
+  border-bottom: 1px dashed var(--borde);
+  padding-bottom: 0.5rem;
+}
+
+.confirmacion-matricula button {
+  margin-top: 1rem;
+  background: var(--tinta);
+  color: var(--papel-carta);
+  border: none;
+  padding: 0.7rem 1.2rem;
+  border-radius: 4px;
+  font-family: var(--sans);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.acordeon-semestre {
+  border: 1px solid var(--borde);
+  border-radius: 4px;
+  margin-bottom: 0.75rem;
+  overflow: hidden;
+}
+
+.acordeon-semestre--actual {
+  border-color: var(--verde);
+}
+
+.acordeon-semestre--bloqueado {
+  opacity: 0.7;
+}
+
+.acordeon-semestre__header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--papel-carta);
+  border: none;
+  padding: 0.85rem 1.1rem;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--tinta);
+  cursor: pointer;
+  text-align: left;
+}
+
+.acordeon-semestre--bloqueado .acordeon-semestre__header {
+  cursor: not-allowed;
+  color: var(--tinta-suave);
+}
+
+.acordeon-semestre__etiqueta {
+  margin-left: 0.6rem;
+  background: var(--verde);
+  color: var(--papel-carta);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.15rem 0.45rem;
+  border-radius: 3px;
+  vertical-align: middle;
+}
+
+.acordeon-semestre__meta {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--tinta-suave);
+}
+
+.acordeon-semestre__aviso {
+  margin: 0;
+  padding: 0 1.1rem 0.85rem;
+  font-size: 0.8rem;
+  color: var(--tinta-suave);
+  font-style: italic;
+}
+
+.lista-cursos__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+  padding: 0 1.1rem 1.1rem;
+}
+
+.acordeon-semestre__meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.acordeon-semestre__candado {
+  flex-shrink: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}

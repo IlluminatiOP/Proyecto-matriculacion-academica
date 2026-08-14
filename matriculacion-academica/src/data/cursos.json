@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "nombre": "Matemáticas Aplicadas",
+    "codigo": "MAT101",
+    "creditos": 3,
+    "semestre": 1,
+    "limiteCupos": 30,
+    "matriculados": 25
+  },
+  {
+    "id": 2,
+    "nombre": "Programación en React",
+    "codigo": "PRG201",
+    "creditos": 4,
+    "semestre": 2,
+    "limiteCupos": 20,
+    "matriculados": 18
+  },
+  {
+    "id": 3,
+    "nombre": "Física Básica",
+    "codigo": "FIS102",
+    "creditos": 4,
+    "semestre": 2,
+    "limiteCupos": 40,
+    "matriculados": 30
+  },
+  {
+    "id": 4,
+    "nombre": "Bases de Datos",
+    "codigo": "BD202",
+    "creditos": 3,
+    "semestre": 2,
+    "limiteCupos": 25,
+    "matriculados": 17
+  },
+  {
+    "id": 5,
+    "nombre": "Álgebra Lineal",
+    "codigo": "ALG103",
+    "creditos": 4,
+    "semestre": 1,
+    "limiteCupos": 50,
+    "matriculados": 35
+  },
+  {
+    "id": 6,
+    "nombre": "Diseño de Interfaces",
+    "codigo": "UX203",
+    "creditos": 3,
+    "semestre": 2,
+    "limiteCupos": 15,
+    "matriculados": 10
+  },
+  {
+    "id": 7,
+    "nombre": "Estructuras de Datos",
+    "codigo": "EDD204",
+    "creditos": 4,
+    "semestre": 2,
+    "limiteCupos": 30,
+    "matriculados": 12
+  },
+  {
+    "id": 8,
+    "nombre": "Redes de Computadores",
+    "codigo": "RED205",
+    "creditos": 3,
+    "semestre": 2,
+    "limiteCupos": 20,
+    "matriculados": 5
+  },
+  {
+    "id": 9,
+    "nombre": "Cálculo Diferencial",
+    "codigo": "CAL104",
+    "creditos": 4,
+    "semestre": 1,
+    "limiteCupos": 35,
+    "matriculados": 20
+  },
+  {
+    "id": 10,
+    "nombre": "Ética Profesional",
+    "codigo": "ETI105",
+    "creditos": 2,
+    "semestre": 1,
+    "limiteCupos": 40,
+    "matriculados": 30
+  }
+]
