@@ -17,7 +17,7 @@ Desarrollada como prueba técnica de React.
 
 ```bash
 # 1. Clonar el repositorio
-git clone <url-del-repositorio>
+git clone <https://github.com/IlluminatiOP/Proyecto-matriculacion-academica>
 cd matriculacion-academica
 
 # 2. Instalar dependencias
@@ -26,6 +26,7 @@ npm install
 # 3. Iniciar el servidor de desarrollo
 npm run dev
 ```
+La aplicación queda disponible en `http://localhost:5173`.
 
 No requiere backend, base de datos ni variables de entorno: todos los datos están simulados en archivos JSON locales.
 
